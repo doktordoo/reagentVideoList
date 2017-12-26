@@ -2,12 +2,26 @@
     (:require
       [reagent.core :as r]))
 
+(defonce videos (r/atom (sorted-map)))      
+
 ;; -------------------------
 ;; Views
 
-(defn home-page []
-  [:div [:h2 "Welcome to Reagent"]])
+(defn videoitems []
+  [:li.list-group-item
+  [:div.video-list.media "video1" ]])
 
+(defn videolist []
+  [:ul.col-md-4.list-group [videoitems]])
+
+(defn search-bar []
+  [:div.search-bar [:input ]])
+
+(defn home-page []
+  [:div [:h2 "Welcome to videolist"]
+  [search-bar]
+  [videolist]]
+  )
 ;; -------------------------
 ;; Initialize app
 
